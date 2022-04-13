@@ -1,18 +1,16 @@
 package fr.delcey.openclassrooms_master_detail_mvvm.data.mail
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.map
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class MailRepository @Inject constructor() {
 
-    private val emailsLiveData = MutableLiveData<List<MailEntity>>()
-
-    init {
-        emailsLiveData.value = listOf(
+    private val emailsFlow = flowOf(
+        listOf(
             MailEntity(
                 id = "0",
                 title = "RE: Ma liste au père Noël",
@@ -42,11 +40,11 @@ class MailRepository @Inject constructor() {
                 to = listOf("jj.dujardingue@nice.com", "nino@delcey.fr")
             )
         )
-    }
+    )
 
-    fun getAllMailLiveData(): LiveData<List<MailEntity>> = emailsLiveData
+    fun getAllMailFlow(): Flow<List<MailEntity>> = emailsFlow
 
-    fun getMailByIdLiveData(id : String) : LiveData<MailEntity> = emailsLiveData.map { mails ->
+    fun getMailByIdFlow(id: String): Flow<MailEntity> = emailsFlow.map { mails ->
         mails.first { it.id == id }
     }
 }

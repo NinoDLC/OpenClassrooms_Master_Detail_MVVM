@@ -1,6 +1,7 @@
 package fr.delcey.openclassrooms_master_detail_mvvm.ui.main
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import fr.delcey.openclassrooms_master_detail_mvvm.data.current_mail.CurrentMailIdRepository
 import fr.delcey.openclassrooms_master_detail_mvvm.ui.utils.SingleLiveEvent
@@ -16,7 +17,7 @@ class MainViewModel @Inject constructor(
     val navigateSingleLiveEvent = SingleLiveEvent<MainViewAction>()
 
     init {
-        navigateSingleLiveEvent.addSource(currentMailIdRepository.currentIdLiveData) {
+        navigateSingleLiveEvent.addSource(currentMailIdRepository.currentIdFlow.asLiveData()) {
             if (!isTablet) {
                 navigateSingleLiveEvent.setValue(MainViewAction.NavigateToDetailActivity)
             }

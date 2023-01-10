@@ -5,13 +5,16 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import fr.delcey.openclassrooms_master_detail_mvvm.databinding.DetailActivityBinding
+import fr.delcey.openclassrooms_master_detail_mvvm.ui.utils.viewBinding
 
 @AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
+
+    private val binding by viewBinding { DetailActivityBinding.inflate(it) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding = DetailActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -19,7 +22,7 @@ class DetailActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(binding.detailFlContainer.id, DetailFragment())
+                .replace(binding.detailFrameLayoutContainer.id, DetailFragment())
                 .commitNow()
         }
     }

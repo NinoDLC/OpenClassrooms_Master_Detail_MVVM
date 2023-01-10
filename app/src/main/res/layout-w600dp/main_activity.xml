@@ -3,31 +3,45 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <FrameLayout
-        android:id="@+id/main_fl_container_list"
+        android:id="@+id/main_FrameLayout_container_mails"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/main_gl_list"
+        app:layout_constraintEnd_toStartOf="@id/main_GuideLine_mails"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/main_gl_list"
+        android:id="@+id/main_GuideLine_mails"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="200dp" />
+        app:layout_constraintGuide_begin="200dp"
+        />
+
+    <View
+        android:id="@+id/main_View_separator"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="#aaa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/main_GuideLine_mails"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <FrameLayout
-        android:id="@+id/main_fl_container_detail"
+        android:id="@+id/main_FrameLayout_container_detail"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/main_gl_list"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/main_GuideLine_mails"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

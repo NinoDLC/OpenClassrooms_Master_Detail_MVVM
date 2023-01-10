@@ -9,31 +9,30 @@ import fr.delcey.openclassrooms_master_detail_mvvm.R
 import fr.delcey.openclassrooms_master_detail_mvvm.databinding.MainActivityBinding
 import fr.delcey.openclassrooms_master_detail_mvvm.ui.detail.DetailActivity
 import fr.delcey.openclassrooms_master_detail_mvvm.ui.detail.DetailFragment
-import fr.delcey.openclassrooms_master_detail_mvvm.ui.list.MailsFragment
+import fr.delcey.openclassrooms_master_detail_mvvm.ui.mails.MailsFragment
+import fr.delcey.openclassrooms_master_detail_mvvm.ui.utils.viewBinding
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
+    private val binding by viewBinding { MainActivityBinding.inflate(it) }
     private val viewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding = MainActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(binding.mainFlContainerList.id, MailsFragment())
+                .replace(binding.mainFrameLayoutContainerMails.id, MailsFragment())
                 .commitNow()
         }
 
-        if (binding.mainFlContainerDetail != null && supportFragmentManager.findFragmentById(binding.mainFlContainerDetail.id) == null) {
+        val containerDetailsId = binding.mainFrameLayoutContainerDetail?.id
+        if (containerDetailsId != null && supportFragmentManager.findFragmentById(containerDetailsId) == null) {
             supportFragmentManager.beginTransaction()
-                .add(
-                    binding.mainFlContainerDetail.id,
-                    DetailFragment()
-                )
+                .replace(containerDetailsId, DetailFragment())
                 .commitNow()
         }
 
@@ -47,6 +46,6 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        viewModel.onConfigurationChanged(resources.getBoolean(R.bool.isTablet))
+        viewModel.onResume(resources.getBoolean(R.bool.isTablet))
     }
 }

@@ -1,4 +1,4 @@
-package fr.delcey.openclassrooms_master_detail_mvvm.ui.list
+package fr.delcey.openclassrooms_master_detail_mvvm.ui.mails
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

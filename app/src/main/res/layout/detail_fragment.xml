@@ -12,15 +12,15 @@
         android:padding="16dp">
 
         <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/detail_bar_titles"
+            android:id="@+id/detail_Barrier_titles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:barrierDirection="end"
-            app:constraint_referenced_ids="detail_tv_title_title,detail_tv_from_title,detail_tv_to_title"
+            app:constraint_referenced_ids="detail_TextView_title_title,detail_TextView_from_title,detail_TextView_to_title"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/detail_tv_title_title"
+            android:id="@+id/detail_TextView_title_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/title"
@@ -32,20 +32,19 @@
             tools:visibility="visible" />
 
         <TextView
-            android:id="@+id/detail_tv_title_content"
+            android:id="@+id/detail_TextView_title_content"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@id/detail_bar_titles"
+            app:layout_constraintStart_toEndOf="@id/detail_Barrier_titles"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Bonne année !" />
+            tools:text="Bonne année, mais genre vraiment bonne année !" />
 
         <TextView
-            android:id="@+id/detail_tv_from_title"
+            android:id="@+id/detail_TextView_from_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -54,25 +53,24 @@
             android:textStyle="bold"
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detail_tv_title_content"
+            app:layout_constraintTop_toBottomOf="@id/detail_TextView_title_content"
             tools:visibility="visible" />
 
         <TextView
-            android:id="@+id/detail_tv_from_content"
+            android:id="@+id/detail_TextView_from_content"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@id/detail_bar_titles"
-            app:layout_constraintTop_toBottomOf="@id/detail_tv_title_content"
-            tools:text="unmecquejeconnaispas@wtf.com" />
+            app:layout_constraintStart_toEndOf="@id/detail_Barrier_titles"
+            app:layout_constraintTop_toTopOf="@id/detail_TextView_from_title"
+            tools:text="unmecquejeconnaispas@wtfarethesepeople.com" />
 
         <TextView
-            android:id="@+id/detail_tv_to_title"
+            android:id="@+id/detail_TextView_to_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -81,32 +79,31 @@
             android:textStyle="bold"
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detail_tv_from_content"
+            app:layout_constraintTop_toBottomOf="@id/detail_TextView_from_content"
             tools:visibility="visible" />
 
         <TextView
-            android:id="@+id/detail_tv_to_content"
+            android:id="@+id/detail_TextView_to_content"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@id/detail_bar_titles"
-            app:layout_constraintTop_toBottomOf="@id/detail_tv_from_content"
+            app:layout_constraintStart_toEndOf="@id/detail_Barrier_titles"
+            app:layout_constraintTop_toTopOf="@id/detail_TextView_to_title"
             tools:text="famille@delcey.fr,\nfamille@bis.com,\ngenretoutlemonde@world.com,\nrandom@stuff.net,\ncousinsjamaisrencontrés@unknown.com" />
 
         <TextView
-            android:id="@+id/detail_tv_message"
+            android:id="@+id/detail_TextView_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detail_tv_to_content"
-            tools:text="Bonne année, (insérer une réplique de film ou un diction pourri)" />
+            app:layout_constraintTop_toBottomOf="@id/detail_TextView_to_content"
+            tools:text="Bonne année, (insérer une réplique de film ou un diction pourri)\n\nA l'année prochaine ! (lol)" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

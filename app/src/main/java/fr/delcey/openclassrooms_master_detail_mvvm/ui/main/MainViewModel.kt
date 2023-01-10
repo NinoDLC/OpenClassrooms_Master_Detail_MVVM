@@ -23,7 +23,7 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    fun onConfigurationChanged(isTablet: Boolean) {
+    fun onResume(isTablet: Boolean) {
         this.isTablet = isTablet
     }
 }

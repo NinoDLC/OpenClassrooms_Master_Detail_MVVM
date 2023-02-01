@@ -4,5 +4,6 @@
 # Sujets abordés / démontrés
  * Kotlin
  * Architecture MVVM (Model View ViewModel)
- * `LiveData` & `SingleLiveEvent`
+ * `LiveData` côté View & ViewModel (avec `Event` pour les évènements)
+ * `Flow` côté Repository (avec `Channel` pour les évènements)
  * UI & Navigation en mode Master/Detail

@@ -10,6 +10,7 @@ import fr.delcey.openclassrooms_master_detail_mvvm.databinding.MainActivityBindi
 import fr.delcey.openclassrooms_master_detail_mvvm.ui.detail.DetailActivity
 import fr.delcey.openclassrooms_master_detail_mvvm.ui.detail.DetailFragment
 import fr.delcey.openclassrooms_master_detail_mvvm.ui.mails.MailsFragment
+import fr.delcey.openclassrooms_master_detail_mvvm.ui.main.MainViewAction.NavigateToDetailActivity
 import fr.delcey.openclassrooms_master_detail_mvvm.ui.utils.viewBinding
 
 @AndroidEntryPoint
@@ -36,9 +37,11 @@ class MainActivity : AppCompatActivity() {
                 .commitNow()
         }
 
-        viewModel.navigateSingleLiveEvent.observe(this) {
-            when (it) {
-                MainViewAction.NavigateToDetailActivity -> startActivity(Intent(this, DetailActivity::class.java))
+        viewModel.mainViewActionLiveData.observe(this) { event ->
+            event.handleContent {
+                when (it) {
+                    NavigateToDetailActivity -> startActivity(Intent(this, DetailActivity::class.java))
+                }
             }
         }
     }

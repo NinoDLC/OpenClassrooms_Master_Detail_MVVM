@@ -17,13 +17,12 @@ class MailsViewModel @Inject constructor(
     val mailsLiveData: LiveData<List<MailViewState>> = mailRepository.getAllMailLiveData().map { mails ->
         mails.map {
             MailViewState(
-                it.id,
-                it.title
+                id = it.id,
+                title = it.title,
+                onMailClicked = {
+                    currentMailIdRepository.setCurrentId(it.id)
+                }
             )
         }
-    }
-
-    fun onMailClicked(id: String) {
-        currentMailIdRepository.setCurrentId(id)
     }
 }

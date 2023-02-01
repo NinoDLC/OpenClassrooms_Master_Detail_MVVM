@@ -18,9 +18,7 @@ class MailsFragment : Fragment(R.layout.mails_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = MailsAdapter {
-            viewModel.onMailClicked(it)
-        }
+        val adapter = MailsAdapter()
         binding.mailsRecyclerView.adapter = adapter
         viewModel.mailsLiveData.observe(viewLifecycleOwner) {
             adapter.submitList(it)

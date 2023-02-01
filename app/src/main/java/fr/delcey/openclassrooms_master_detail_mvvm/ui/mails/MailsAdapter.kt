@@ -7,23 +7,21 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import fr.delcey.openclassrooms_master_detail_mvvm.databinding.MailsItemBinding
 
-class MailsAdapter(
-    private val listener: (id: String) -> Unit
-) : ListAdapter<MailViewState, MailsAdapter.ViewHolder>(MailsDiffCallback) {
+class MailsAdapter: ListAdapter<MailViewState, MailsAdapter.ViewHolder>(MailsDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
         MailsItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position), listener)
+        holder.bind(getItem(position))
     }
 
     class ViewHolder(private val binding: MailsItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: MailViewState, listener: (id: String) -> Unit) {
+        fun bind(item: MailViewState) {
             binding.mailsItemTextView.text = item.title
             binding.mailsItemTextView.setOnClickListener {
-                listener.invoke(item.id)
+                item.onMailClicked.invoke()
             }
         }
     }
